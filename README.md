@@ -1,7 +1,7 @@
 # LendIt
 
 [![Join the chat at https://gitter.im/Lend-It/Lobby](https://img.shields.io/badge/gitter-join%20chat-blue.svg)](https://gitter.im/Lend-It/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
+[![Herokuapp](https://img.shields.io/badge/awesome-demo-red.svg)](http://pacific-dawn-55810.herokuapp.com/)
 
 ### Lend today, borrow tomorrow.
 

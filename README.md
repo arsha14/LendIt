@@ -1,5 +1,8 @@
 # LendIt
 
+[![Join the chat at https://gitter.im/Lend-It/Lobby](https://img.shields.io/badge/gitter-join%20chat-blue.svg)](https://gitter.im/Lend-It/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
 ### Lend today, borrow tomorrow.
 
 ### A lending platform that bridges the gap between lenders and borrowers.

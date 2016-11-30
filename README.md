@@ -27,3 +27,6 @@ Features to be:
 - UI Revamp
 - User based addition of books
 - Add push notifications
+
+## Contribution
+If you are here because of KWoC or otherwise, do head over to our [gitter chat room](https://gitter.im/Lend-It/Lobby) to get in touch. Look at [CONTRIBUTING.md](https://github.com/CodeMaxx/LendIt/blob/master/CONTRIBUTING.md) for more information on how to contribute.

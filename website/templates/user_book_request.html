@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>New Book Request</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="/static/lyv/js/skel.min.js"></script>
+	<script src="/static/lyv/js/skel-layers.min.js"></script>
+	<script src="/static/lyv/js/init.js"></script>
+	<noscript>
+		<link rel="stylesheet" href="/static/lyv/css/skel.css" />
+		<link rel="stylesheet" href="/static/lyv/css/style.css" />
+		<link rel="stylesheet" href="/static/lyv/css/style-xlarge.css" />
+	</noscript>
+
+
+	<link href="/static/lyv/css/easy-autocomplete.min.css" rel="stylesheet" type="text/css">
+	<link href="/static/lyv/css/easy-autocomplete.themes.min.css" rel="stylesheet" type="text/css">
+	<link href='//fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,600,600italic&amp;subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+	<script src="/static/lyv/js/jquery-1.11.2.min.js"></script>
+	<script src="/static/lyv/js/jquery.easy-autocomplete.min.js" type="text/javascript" ></script>
+
+	<style>
+	</style>
+</head>
+
+<body>
+	<div id="wrapper">
+
+	{% include "lyv/header.html" %}
+
+
+		<!-- Three -->
+			<section id="three" class="wrapper style3 special">
+				<div class="container">
+					<header class="major">
+						<h1>Request a Book</h1>
+					</header>
+				</div>
+				<div class="container 50%">
+					<form id="newbookform" method="post">
+					{% csrf_token %}
+						<div class="row uniform" style="color: black; ">
+							<div class="12u$">
+								<input name="name" id="square" value="" placeholder="Book Name" type="text" style="width: 100%; display: ;"/>
+							</div>
+						</div>
+						<div class="row uniform">
+							<div class="12u$">
+								<input name="author" id="condition" value="" placeholder="Author" type="text">
+							</div>
+						</div>
+						<div class="row uniform">
+							<div class="12u$">
+								<input name="cover_url" id="image_url" value="" placeholder="Book Cover Image URL" type="url">
+							</div>
+							<div class="12u$">
+								<input name="email" id="image_url" value="" type='email' placeholder="Your Email(We'll notify you when the book is added)" type="url">
+							</div>
+							<div class="12u$">
+								<ul class="actions">
+									<li><input value="Submit" class="special big" type="submit"></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</section>
+
+			<script>
+			var options = {
+				url: "static/lyv/books.json",
+				getValue: "name",
+				minCharNumber: 0,
+				list: {
+					match: {
+						enabled: true
+					},
+					maxNumberOfElements: 8,
+					hideOnEmptyPhrase: true
+				},
+				requestDelay: 500,
+				theme: "square"
+			};
+			$("#square").easyAutocomplete(options);
+
+			window.onresize = function(event) {
+				$("#square").width($("$image_url").width());
+			}
+			</script>
+	</div>
+
+{% include "lyv/footer.html" %}
+
+</body>
+</html>

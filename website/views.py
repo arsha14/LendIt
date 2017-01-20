@@ -1,3 +1,4 @@
+from django.core.mail import BadHeaderError
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -5,6 +6,7 @@ from django.shortcuts import render, redirect
 from website.models import *
 import random
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
 
 import json
 
@@ -175,7 +177,7 @@ def request_handle(request):
 @csrf_exempt
 def update_location(request):
 	if request.method == "POST":
-		lendituser = request.user.lendituser;
+		lendituser = request.user.lendituser
 		lat = request.POST['latitude']
 		long = request.POST['longitude']
 		lendituser.lat = lat
@@ -184,3 +186,23 @@ def update_location(request):
 		return HttpResponseRedirect(reverse('home'))
 	else:
 		return HttpResponse("you are here")
+
+
+def user_book_request(request):
+	if request.method == "POST":
+		from_email = request.POST['email']
+		book_name = request.POST['name']
+		author = request.POST['author']
+		url = request.POST['cover_url']
+		subject = 'New Book Request'
+		if book_name and author and url and from_email:
+			message = 'From: ' + from_email + '\nBook: ' + book_name + '\nAuthor: ' +  author + '\nImage URL: ' + url + '\n'
+			try:
+				send_mail(subject, message, from_email, ['arpanbnrj9@gmail.com', 'akash.trehan123@gmail.com', 'nihal.111@gmail.com'], fail_silently=False)
+			except BadHeaderError:
+				return HttpResponse('Invalid header found.')
+			return HttpResponse('Request sent Successfully!')
+		else:
+			return HttpResponse('Make sure all fields are entered and valid.')
+	elif request.method == "GET":
+		return render(request, 'user_book_request.html', [])

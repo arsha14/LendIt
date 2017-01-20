@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o-e0gy!2u5-z@f90cxd5!eefj!rc8s8u+jot7q6!nts#dd3d9@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'pacific-dawn-55810.herokuapp.com','54.225.167.36']
 
@@ -158,7 +158,7 @@ LOGIN_URL = '/login/'
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [  
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
     # pattern is (source key, destination key)
     ('email', 'email'),
     ('profile','profile')
@@ -181,3 +181,16 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
             os.path.join(PROJECT_ROOT, 'static'),
             )
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Host for sending e-mail.
+EMAIL_HOST='smtp.gmail.com'
+
+# Port for sending e-mail.
+EMAIL_PORT = 587
+
+# Optional SMTP authentication information for EMAIL_HOST.
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True

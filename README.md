@@ -7,7 +7,7 @@
 
 ### A lending platform that bridges the gap between lenders and borrowers.
 
-LendIt is a web application developed using the Django framework. Through lend it one can find people around who wish to lend out things. One can also add things he/she is willing to lend out for others to borrow.
+LendIt is a web application developed using the Django framework. Through LendIt, one can find people around who wish to lend out things. One can also add things they are willing to lend out for others to borrow.
 
 **It is designed to facilitate sharing of mostly reusable commodities such as books, movies or games.**
 
